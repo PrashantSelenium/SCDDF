@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace TestAutomation
 {
     [TestFixture]
-    public class UnitTests
+    public class Suite1UnitTests
     {
         [Test]
         public void SuiteSelectionTest()
