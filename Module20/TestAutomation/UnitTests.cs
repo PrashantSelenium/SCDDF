@@ -11,10 +11,10 @@ namespace TestAutomation
         [Test]
         public void SuiteSelectionTest()
         {
-            Console.WriteLine(SelectionHelper.IsSuiteSelected("H:\\Seleniumc#\\SCDDF\\Module20\\TestAutomation\\TestData\\Suite.xlsx", "Suite Name"));
-            Console.WriteLine(SelectionHelper.IsSuiteSelected("H:\\Seleniumc#\\SCDDF\\Module20\\TestAutomation\\TestData\\Suite.xlsx", "SuiteA"));
-            Console.WriteLine(SelectionHelper.IsSuiteSelected("H:\\Seleniumc#\\SCDDF\\Module20\\TestAutomation\\TestData\\Suite.xlsx", "SuiteB"));
-            Console.WriteLine(SelectionHelper.IsSuiteSelected("H:\\Seleniumc#\\SCDDF\\Module20\\TestAutomation\\TestData\\Suite.xlsx", "SuiteC"));
+            Console.WriteLine(SelectionHelper.IsSuiteSelected(ResourcsTestFilePaths.SuitesExcelFilePath, "Suite Name"));
+            Console.WriteLine(SelectionHelper.IsSuiteSelected(ResourcsTestFilePaths.SuitesExcelFilePath, "SuiteA"));
+            Console.WriteLine(SelectionHelper.IsSuiteSelected(ResourcsTestFilePaths.SuitesExcelFilePath, "SuiteB"));
+            Console.WriteLine(SelectionHelper.IsSuiteSelected(ResourcsTestFilePaths.SuitesExcelFilePath, "SuiteC"));
         }
 
         
