@@ -70,17 +70,18 @@ namespace DataDrivenFramework
                 return 0;
            
                 sheet = workbook.GetSheetAt(index);
-            //Console.WriteLine("SheetName --> " + sheet);
-            //Console.WriteLine("Sheet Last Row --> " + sheet.LastRowNum);
+            Console.WriteLine("SheetName --> " + sheetName + "SheeIndex" + index);
+            Console.WriteLine("Sheet Last Row --> " + sheet.LastRowNum);
             int rw ;
-                for (rw = 1; rw <=sheet.LastRowNum; rw++)
+                for (rw = 0; rw <=sheet.LastRowNum; rw++)
                 {
                     //if (sheet.GetRow(rw) != null)
                     //{
                         row = sheet.GetRow(rw);
+                //Console.WriteLine("row --> " + row);
                         ICell cell = row.GetCell(colNum);
                         String actValue = cell.ToString();
-                        //Console.WriteLine("actualvalue --> " + actValue + "Exp Value --> " + value);
+                        Console.WriteLine("actualvalue --> " + actValue + "Exp Value --> " + value);
                             if (actValue.Equals(value,StringComparison.OrdinalIgnoreCase))
                             {
 

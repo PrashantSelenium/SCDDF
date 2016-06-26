@@ -41,5 +41,59 @@ namespace DataDrivenFramework
                 return false;
             }
         }
+
+
+        public static List<Dictionary<String, String>> GetTestData(String suiteFilePath, String funcName,String testCaseName)
+        {
+            List<Dictionary<String,String>> listOfData = new List<Dictionary<String, String>>();
+            
+            ExcelReaderFile exl = new ExcelReaderFile(suiteFilePath);
+            int testCaseRowNumber = exl.getRowNumber(funcName, 0,testCaseName);
+            int testHeaderRowNumber = testCaseRowNumber + 1;
+            int testDataStartRowNumber = testHeaderRowNumber + 1;
+            int testDataEndRowNumber = testHeaderRowNumber;
+            int counter = testDataStartRowNumber;
+
+            while (!exl.getCellData(funcName, 0, counter).Equals(""))
+            {
+                
+                counter++;
+                testDataEndRowNumber++;
+                Console.WriteLine("Run Mode --> " + exl.getCellData(funcName, 0, testDataEndRowNumber));
+            }
+
+            Console.WriteLine("testCaseRowNumber --> " + testCaseRowNumber);
+            Console.WriteLine("testHeaderRowNumber --> " + testHeaderRowNumber);
+            Console.WriteLine("testDataStartRowNumber --> " + testDataStartRowNumber);
+            Console.WriteLine("testDataEndRowNumber --> " + testDataEndRowNumber);
+            
+            for (int i= testDataStartRowNumber; i<=testDataEndRowNumber; i++)
+            {
+                Console.WriteLine("***********************************************************************");
+                Dictionary<String, String> data = new Dictionary<String, String>();
+                int colID = 0;
+                while (!exl.getCellData(funcName, colID, testHeaderRowNumber).Equals(""))
+                {
+                    data.Add(exl.getCellData(funcName, colID, testHeaderRowNumber), exl.getCellData(funcName, colID, i));
+                    Console.WriteLine("Cell Data --> "+ exl.getCellData(funcName, colID, i));
+                    colID++;
+                    
+                }
+
+                Console.WriteLine("***********************************************************************");
+
+                listOfData.Add(data);
+            }
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+
+            return listOfData;
+        }
+
+
     }
+   
+
+
+
+
 }
