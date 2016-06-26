@@ -49,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Suite2UnitTest.cs" />
     <Compile Include="Suite3UnitTests.cs" />
+    <Compile Include="TestCaseBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
